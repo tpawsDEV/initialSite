@@ -17,9 +17,9 @@ const createUserFormSchema = z.object({
     .nonempty('O e-mail é obrigatório')
     .email('Formato de e-mail inválido'),
   password: z.string()
-  .nonempty('A senha é obrigatória')
-  .min(4, 'A senha precisa de no mínimo 4 caracteres')
-  .max(100)
+    .nonempty('A senha é obrigatória')
+    .min(4, 'A senha precisa de no mínimo 4 caracteres')
+    .max(100)
 })
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
@@ -67,7 +67,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               disabled={isLoading}
               {...register('email')}
             />
-            {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
+            {errors.email && <span className="text-red-500 text-sm">{errors.email.message as React.ReactNode}</span>}
           </div>
           <div className="grid gap-1 ">
             <h1 className="text-gray-400 text-base">Senha</h1>
@@ -83,7 +83,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               disabled={isLoading}
               {...register('password')}
             />
-            {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
+            {errors.password && <span className="text-red-500 text-sm">{errors.password.message as React.ReactNode}</span>}
           </div>
         </div>
         <Button disabled={isLoading} className='w-full mt-5'>

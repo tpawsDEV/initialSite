@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/providers/theme";
 import SessionProvider from "@/providers/session";
 import { getServerSession } from "next-auth";
 import { NextQueryClientProvider } from "@/providers/query";
+import { SiteHeader } from "@/components/menus/header";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -38,7 +39,10 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <SessionProvider session={session}>
-            <NextQueryClientProvider>{children}</NextQueryClientProvider>
+            <NextQueryClientProvider>
+              <SiteHeader />
+              {children}
+            </NextQueryClientProvider>
           </SessionProvider>
         </ThemeProvider>
       </body>

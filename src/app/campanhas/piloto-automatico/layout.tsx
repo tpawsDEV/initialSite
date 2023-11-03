@@ -15,7 +15,6 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <SiteHeader />
       <Suspense fallback={<Loading />}>{children}</Suspense>
     </>
   );

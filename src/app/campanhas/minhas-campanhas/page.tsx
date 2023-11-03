@@ -10,7 +10,6 @@ export default function Home() {
   // }
   return (
     <>
-      <SiteHeader />
       <span> {session?.data?.user.marketing_id}</span>
     </>
   );
